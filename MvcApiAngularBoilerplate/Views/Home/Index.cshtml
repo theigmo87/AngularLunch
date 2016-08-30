@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html ng-app="root" ng-strict-di>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="description" content="An AngularJS contact manager app" />
+    <title ng-bind="title"></title>
+    @*<style>
+        body[ng-cloak] {
+            display: none;
+        }
+
+        .boxWithHeight {
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        footer {
+            position: static;
+            max-height: 64px;
+            border-top: 1px solid blue;
+        }
+    </style>*@
+    <link rel="stylesheet" href="/assets/dist/css/style.css">
+</head>
+@*<base href="~/assets/src/app" />*@
+<body>
+    <root>
+        <span class="loader">Loading...</span>
+    </root>
+    <script src="assets/dist/js/vendor.js"></script>
+    <script src="assets/dist/js/bundle.js"></script>
+        @*<my-app flex layout="column"></my-app>
+        @if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <script src="~/assets/.tmp/index.js"></script>
+        }
+        else
+        {
+            <text>
+                @Scripts.Render("~/Content/appJs")
+            </text>
+        }*@
+</body>
+</html>

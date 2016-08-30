@@ -1,0 +1,24 @@
+// angular
+require('angular');
+
+// angular material
+require("../node_modules/angular-material/angular-material.css");
+require('angular-material');
+
+// routing
+require('angular-ui-router');
+
+// my app's modules
+require("./app/app.module.js");
+
+// app modules
+(function () {
+    'use strict';
+    angular.module('myApp', [
+        /* angular modules */
+        'ngMaterial', 'ui.router',
+
+        /* my app's modules */
+        'myApp.app'
+    ]);
+})();
