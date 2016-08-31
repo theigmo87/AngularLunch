@@ -1,8 +1,8 @@
 angular
-  .module('components.contact')
-  .service('ContactService', ContactService);
+    .module('components.contact')
+    .service('ContactService', ContactService);
 
-function ContactService($http) {
+function ContactService($http, $q) {
 
     var service = {
         getContactList: getContactList,
@@ -14,23 +14,23 @@ function ContactService($http) {
 
     return service;
 
-    function createNewContact(contact) {
-
+    function saveContact(contact) {
+        return $http.put('/api/contacts/', contact);
     }
 
     function getContactList() {
-        return $http.get('/api/contacts/').then(function(resp){ return resp.data; });
+        return $http.get("/api/contacts");
     }
 
     function getContactById(id) {
-
+        return $http.get('/api/contacts/' + id);
     }
 
     function updateContact(contact) {
-
+        return $http.put('/api/contacts/', contact);
     }
 
     function deleteContact(contact) {
-
+        return $http.delete('/api/contacts/', contact);
     }
 }

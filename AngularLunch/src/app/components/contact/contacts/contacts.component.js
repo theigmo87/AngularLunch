@@ -2,7 +2,6 @@ angular
     .module('components.contact')
     .component('contacts', {
         bindings: {
-            contacts: '<',
             filter: '<'
         },
         templateUrl: './contacts.html',
@@ -16,6 +15,7 @@ angular
                 component: 'contacts',
                 resolve: {
                     contacts: function (ContactService) {
+                        console.log("in resolve contacts");
                         return ContactService.getContactList();
                     }
                 }
@@ -24,11 +24,19 @@ angular
 
 function ContactsController($state) {
     var ctrl = this;
-    var contacts = ctrl.contacts;
-    console.log(contacts);
+
+    
+
     ctrl.goToContact = function (event) {
         $state.go('contact', {
             id: event.contactId
         });
     };
+
+    //this.$onChanges = function (changesObj) {
+    //    console.log(changesObj);
+    //    if (changesObj.contacts && changesObj.contacts.currentValue) {
+    //        console.log(changesObj.contacts.currentValue);
+    //    }
+    //}    
 }
