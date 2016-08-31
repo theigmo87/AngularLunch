@@ -1,70 +1,48 @@
 <div class="contact">
-  <form name="contactDetailForm" novalidate>
-    <div>
-      <span class="contact__required">*</span> field is required
-    </div>
-    <div class="contact__box">
-      <h3 class="contact__sub-title">
-        Personal
-      </h3>
-      <div class="contact__field">
-        <label>
-          Name <span class="contact__required">*</span>
-        </label>
-        <input
-          type="text"
-          name="name"
-          length-check
-          required="required"
-          ng-change="$ctrl.updateContact();"
-          ng-model-options="{
-            'updateOn': 'default blur',
-            'debounce': {
-              'default': 250,
-              'blur': 0
-            }
-          }"
-          ng-model="$ctrl.contact.name">
-      </div>
-      <div class="contact__field">
-        <label>
-          Email
-          <span class="contact__error" ng-if="contactDetailForm.email.$error.email">
-            Must be a valid email
-          </span>
-        </label>
-        <input
-          type="email"
-          name="email"
-          length-check
-          ng-change="$ctrl.updateContact();"
-          ng-model-options="{
-            'updateOn': 'default blur',
-            'debounce': {
-              'default': 250,
-              'blur': 0
-            }
-          }"
-          ng-model="$ctrl.contact.email">
-      </div>
-      <div class="contact__field">
-        <label>
-          Job title
-        </label>
-        <input
-          type="text"
-          name="jobTitle"
-          length-check
-          ng-change="$ctrl.updateContact();"
-          ng-model-options="{
-            'updateOn': 'default blur',
-            'debounce': {
-              'default': 250,
-              'blur': 0
-            }
-          }"
-          ng-model="$ctrl.contact.job">
-      </div>
+    <form name="contactDetailForm" novalidate>
+        <div>
+            <span class="contact__required">*</span> field is required
+        </div>
+        <div class="contact__box">
+            <h3 class="contact__sub-title">
+                Personal
+            </h3>
+            <div class="contact__field">
+                <label>
+                    Name <span class="contact__required">*</span>
+                </label>
+                <input type="text" name="name" required="required" 
+                        length-check 
+                        ng-change="$ctrl.updateContact();"
+                        ng-model="$ctrl.contact.name"
+                        ng-model-options="{ 'updateOn': 'default blur', 
+                            'debounce': { 'default': 250, 'blur': 0 }}" />
+            </div>
+            <div class="contact__field">
+                <label>
+                    Email
+                    <span class="contact__error" ng-if="contactDetailForm.email.$error.email">
+                        Must be a valid email
+                    </span>
+                </label>
+                <input type="email" name="email"
+                        length-check
+                        ng-change="$ctrl.updateContact();"
+                        ng-model="$ctrl.contact.email"
+                        ng-model-options="{ 'updateOn': 'default blur',
+                            'debounce': { 'default': 250, 'blur': 0 }" />
+            </div>
+            <div class="contact__field">
+                <label>
+                    Job title
+                </label>
+                <input type="text" name="jobTitle"
+                        length-check
+                        ng-change="$ctrl.updateContact();"
+                        ng-model="$ctrl.contact.job"
+                        ng-model-options="{ 'updateOn': 'default blur',
+                            'debounce': { 'default': 250, 'blur': 0 }}" />
+            </div>
       <div class="contact__field">
         <label>
           Location

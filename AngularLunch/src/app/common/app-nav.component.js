@@ -1,10 +1,8 @@
-var appNav = {
-  bindings: {
-    user: '<'
-  },
-  templateUrl: './app-nav.html'
-};
-
 angular
-  .module('common')
-  .component('appNav', appNav);
+    .module('common')
+    .component('appNav', {
+        templateUrl: './app-nav.html',
+        bindings: {
+            user: '<'
+        }
+    });

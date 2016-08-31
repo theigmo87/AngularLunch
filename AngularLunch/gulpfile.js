@@ -63,12 +63,12 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', ['modules'], () => {
-  return gulp.src([
-      `!${root}/app/**/*.spec.js`,
-      `${root}/app/**/*.module.js`,
-      ...paths.scripts,
-      './templates.js'
-    ])
+    return gulp.src([
+        `!${root}/app/**/*.spec.js`,
+        `${root}/app/**/*.module.js`,
+        //...paths.scripts,
+        './templates.js'
+    ].concat(paths.scripts))
     .pipe(wrap('(function(angular){\n\'use strict\';\n<%= contents %>})(window.angular);'))
     .pipe(concat('bundle.js'))
     .pipe(ngAnnotate())

@@ -27,10 +27,8 @@
     <Content Include="src\app\common\app-nav.component.js" />
     <Content Include="src\app\common\app-nav.html" />
     <Content Include="src\app\common\app-sidebar.component.js" />
-    <Content Include="src\app\common\app-sidebar.controller.js" />
     <Content Include="src\app\common\app-sidebar.html" />
     <Content Include="src\app\common\app.component.js" />
-    <Content Include="src\app\common\app.controller.js" />
     <Content Include="src\app\common\app.html" />
     <Content Include="src\app\common\app.module.js" />
     <Content Include="src\app\common\app.spec.js" />
