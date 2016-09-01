@@ -7,11 +7,12 @@ namespace MvcApiAngularBoilerplate.Models
 {
     public class Contact
     { 
-        public int ID { get; set; }
+        public int ContactId { get; set; }
         public string FirstName { get; set; }
         public string MI { get; set; }
         public string LastName { get; set; }
         public string NickName { get; set; }
+        public string Email { get; set; }
         public string FullName { get
             {
                 if (String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName))

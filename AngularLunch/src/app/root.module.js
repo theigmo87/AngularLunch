@@ -4,6 +4,10 @@ angular
         'components',
         'templates'
     ])
-    .run(function ($state) {
-        $state.go('app');
+    .config(function ($urlRouterProvider, $locationProvider) {
+        $urlRouterProvider.when('', '/')
+
+        $urlRouterProvider.otherwise('/');
+
+        // $locationProvider.html5Mode(true);
     });

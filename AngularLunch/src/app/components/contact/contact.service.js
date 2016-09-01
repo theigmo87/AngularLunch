@@ -14,10 +14,6 @@ function ContactService($http, $q) {
 
     return service;
 
-    function saveContact(contact) {
-        return $http.put('/api/contacts/', contact);
-    }
-
     function getContactList() {
         return $http.get("/api/contacts");
     }
@@ -26,11 +22,15 @@ function ContactService($http, $q) {
         return $http.get('/api/contacts/' + id);
     }
 
+    function createNewContact(contact) {
+        return $http.post('/api/contacts/', contact);
+    }
+
     function updateContact(contact) {
         return $http.put('/api/contacts/', contact);
     }
 
-    function deleteContact(contact) {
-        return $http.delete('/api/contacts/', contact);
+    function deleteContact(id) {
+        return $http.delete('/api/contacts/' + id);
     }
 }

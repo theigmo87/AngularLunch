@@ -10,12 +10,19 @@ angular
     });
 
 function ContactController() {
-    var vm = this;
+    var ctrl = this;
+    ctrl.$onChanges = onChanges;
+    ctrl.selectContact = selectContact;
 
-    vm.selectContact = function () {
-        vm.onSelect({
+    function onChanges(changesObj) {
+        if (changesObj.contact && changesObj.contact.currentValue)
+            ctrl.contact = changesObj.contact.currentValue;
+    }
+
+    function selectContact() {
+        ctrl.onSelect({
             $event: {
-                contactId: ctrl.contact.$id
+                contactId: ctrl.contact.contactId
             }
         });
     };

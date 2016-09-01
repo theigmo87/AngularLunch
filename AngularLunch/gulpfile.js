@@ -13,6 +13,7 @@ var templateCache = require('gulp-angular-templatecache');
 var server = require('browser-sync');
 var del = require('del');
 var path = require('path');
+var cssNano = require('gulp-cssnano');
 
 const argv = yargs.argv;
 const root = 'src/';
@@ -25,7 +26,13 @@ const paths = {
   modules: [
     'angular/angular.js',
     'angular-ui-router/release/angular-ui-router.js',
-    'angular-loading-bar/build/loading-bar.min.js'
+    'angular-loading-bar/build/loading-bar.min.js',
+    'angular-aria/angular-aria.min.js',
+    'angular-animate/angular-animate.min.js',
+    'angular-material/angular-material.min.js'
+  ],
+  vendorStyles: [
+      'angular-material/angular-material.min.css'
   ],
   static: [
     //`${root}/index.html`,
@@ -56,17 +63,22 @@ gulp.task('modules', ['templates'], () => {
     .pipe(gulp.dest(paths.dist + 'js/'));
 });
 
-gulp.task('styles', () => {
+gulp.task('styles', ['vendorStyles'], () => {
   return gulp.src(paths.styles)
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest(paths.dist + 'css/'));
+});
+
+gulp.task('vendorStyles', () => {
+    return gulp.src(paths.vendorStyles.map(item => 'node_modules/' + item))
+        .pipe(concat('vendor.css'))
+        .pipe(gulp.dest(paths.dist + 'css/'))
 });
 
 gulp.task('scripts', ['modules'], () => {
     return gulp.src([
         `!${root}/app/**/*.spec.js`,
         `${root}/app/**/*.module.js`,
-        //...paths.scripts,
         './templates.js'
     ].concat(paths.scripts))
     .pipe(wrap('(function(angular){\n\'use strict\';\n<%= contents %>})(window.angular);'))
@@ -76,25 +88,20 @@ gulp.task('scripts', ['modules'], () => {
     .pipe(gulp.dest(paths.dist + 'js/'));
 });
 
-//gulp.task('serve', () => {
-//  return server.init({
-//    files: [`${paths.dist}/**`],
-//    port: 4000,
-//    server: {
-//      baseDir: paths.dist
-//    }
-//  });
-//});
+gulp.task('serve', () => {
+  return server.init({
+    files: [`${paths.dist}/**`],
+    port: 4000,
+    server: {
+      baseDir: paths.dist
+    }
+  });
+});
 
 gulp.task('copy', ['clean'], () => {
   return gulp.src(paths.static, { base: 'src' })
     .pipe(gulp.dest(paths.dist));
 });
-
-//gulp.task('watch', ['serve', 'scripts'], () => {
-//  gulp.watch([paths.scripts, paths.templates], ['scripts']);
-//  gulp.watch(paths.styles, ['styles']);
-//});
 
 gulp.task('watch', ['scripts'], () => {
     gulp.watch([paths.scripts, paths.templates], ['scripts']);
@@ -104,9 +111,19 @@ gulp.task('watch', ['scripts'], () => {
 gulp.task('default', [
   'copy',
   'styles',
-  //'serve',
   'watch'
 ]);
+
+gulp.task('defaultWithServe', [
+  'copy',
+  'styles',
+  'watchWithServe'
+]);
+
+gulp.task('watchWithServe', ['serve', 'scripts'], () => {
+    gulp.watch([paths.scripts, paths.templates, `${root}/index.html`], ['scripts']);
+    gulp.watch(paths.styles, ['styles']);
+});
 
 gulp.task('production', [
   'copy',

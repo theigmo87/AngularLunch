@@ -2,7 +2,8 @@ angular
     .module('components.contact')
     .component('contacts', {
         bindings: {
-            filter: '<'
+            filter: '<',
+            contacts: '<'
         },
         templateUrl: './contacts.html',
         controller: ContactsController
@@ -10,12 +11,10 @@ angular
     .config(function ($stateProvider) {
         $stateProvider
             .state('contacts', {
-                parent: 'app',
-                url: '/contacts',
+                url: '/',
                 component: 'contacts',
                 resolve: {
                     contacts: function (ContactService) {
-                        console.log("in resolve contacts");
                         return ContactService.getContactList();
                     }
                 }
@@ -24,19 +23,18 @@ angular
 
 function ContactsController($state) {
     var ctrl = this;
+    ctrl.$onChanges = onChanges;
+    ctrl.goToContact = goToContact;
 
-    
-
-    ctrl.goToContact = function (event) {
+    function goToContact(event) {
         $state.go('contact', {
             id: event.contactId
         });
     };
 
-    //this.$onChanges = function (changesObj) {
-    //    console.log(changesObj);
-    //    if (changesObj.contacts && changesObj.contacts.currentValue) {
-    //        console.log(changesObj.contacts.currentValue);
-    //    }
-    //}    
+    function onChanges(changesObj) {
+        if (changesObj.contacts && changesObj.contacts.currentValue && changesObj.contacts.currentValue.data) {
+            ctrl.contacts = changesObj.contacts.currentValue.data;
+        }
+    };
 }

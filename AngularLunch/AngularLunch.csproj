@@ -34,15 +34,12 @@
     <Content Include="src\app\common\app.spec.js" />
     <Content Include="src\app\components\components.module.js" />
     <Content Include="src\app\components\contact\contact-detail\contact-detail.component.js" />
-    <Content Include="src\app\components\contact\contact-detail\contact-detail.controller.js" />
     <Content Include="src\app\components\contact\contact-detail\contact-detail.html" />
     <Content Include="src\app\components\contact\contact-detail\contact-detail.spec.js" />
     <Content Include="src\app\components\contact\contact-edit\contact-edit.component.js" />
-    <Content Include="src\app\components\contact\contact-edit\contact-edit.controller.js" />
     <Content Include="src\app\components\contact\contact-edit\contact-edit.html" />
     <Content Include="src\app\components\contact\contact-edit\contact-edit.spec.js" />
     <Content Include="src\app\components\contact\contact-new\contact-new.component.js" />
-    <Content Include="src\app\components\contact\contact-new\contact-new.controller.js" />
     <Content Include="src\app\components\contact\contact-new\contact-new.html" />
     <Content Include="src\app\components\contact\contact-new\contact-new.spec.js" />
     <Content Include="src\app\components\contact\contact-tag\contact-tag.component.js" />
@@ -56,7 +53,6 @@
     <Content Include="src\app\components\contact\contacts\contacts.html" />
     <Content Include="src\app\components\contact\contacts\contacts.spec.js" />
     <Content Include="src\app\components\contact\contact\contact.component.js" />
-    <Content Include="src\app\components\contact\contact\contact.controller.js" />
     <Content Include="src\app\components\contact\contact\contact.html" />
     <Content Include="src\app\components\contact\contact\contact.spec.js" />
     <Content Include="src\app\components\contact\length-check\length-check.directive.js" />

@@ -24,9 +24,10 @@ namespace MvcApiAngularBoilerplate
         }
 
         // POST api/<controller>
-        public void Post(Contact contact)
+        public int Post(Contact contact)
         {
-            _repo.Save(contact);
+            int newId = _repo.Save(contact);
+            return newId;
         }
 
         // PUT api/<controller>/5

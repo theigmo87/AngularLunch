@@ -8,46 +8,48 @@ namespace MvcApiAngularBoilerplate.Repositories
 {
     static class ContactsData
     {
-        public static int GetNewID()
-        {
-            if (Contacts.Any())
-                return Contacts.Max(x => x.ID) + 1;
-            else
-                return 1;
-        }
-        public static List<Contact> Contacts = new List<Contact>()
-        {
+        public static List<Contact> Contacts = new Contact[]{
             new Contact()
             {
-                ID = 1,
+                ContactId = 1,
                 FirstName = "James",
                 MI = "H",
                 LastName = "Gillam",
-                NickName = "Jimmy"
+                NickName = "Jimmy",
+                Email = "jgillam@taxslayer.com"
             },
             new Contact()
             {
-                ID = 2,
+                ContactId = 2,
                 FirstName = "Chris",
                 MI = null,
                 LastName = "Hargrave",
-                NickName = "Chris"
+                NickName = "Chris",
+                Email = "chargrave@taxslayer.com"
             },
             new Contact()
             {
-                ID = 3,
+                ContactId = 3,
                 FirstName = "Dennis",
-                LastName = "O'Keefe"
+                LastName = "O'Keefe",
+                Email = "dokeefe@taxslayer.com"
             }
-        };
+        }.ToList();
+
+        public static int GetNewID()
+        {
+            if (Contacts.Any())
+                return Contacts.Max(x => x.ContactId) + 1;
+            else
+                return 1;
+        }
     };
 
     public class ContactsRepository : iRepository<Contact>
     {
         public bool Delete(int id)
         {
-
-            var index = ContactsData.Contacts.FindIndex(x => x.ID == id);
+            var index = ContactsData.Contacts.FindIndex(x => x.ContactId == id);
             if (index < 0)
                 return false;
             else
@@ -57,7 +59,7 @@ namespace MvcApiAngularBoilerplate.Repositories
 
         public Contact Get(int id)
         {
-            return ContactsData.Contacts.FirstOrDefault(x => x.ID == id);
+            return ContactsData.Contacts.FirstOrDefault(x => x.ContactId == id);
         }
 
         public List<Contact> GetAll()
@@ -66,17 +68,27 @@ namespace MvcApiAngularBoilerplate.Repositories
             return retVal;
         }
 
-        public bool Save(Contact contact)
+        public int Save(Contact contact)
         {
-            Contact _c = ContactsData.Contacts.FirstOrDefault(x => x.ID == contact.ID);
+            int targetId;
+            Contact _c = ContactsData.Contacts.FirstOrDefault(x => x.ContactId == contact.ContactId);
             if (_c != null)
-                _c = contact;
+            {
+                _c.FirstName = contact.FirstName;
+                _c.LastName = contact.LastName;
+                _c.MI = contact.MI;
+                _c.Email = contact.Email;
+                _c.ContactId = contact.ContactId;
+                _c.NickName = contact.NickName;
+                targetId = _c.ContactId;
+            }
             else
             {
-                contact.ID = ContactsData.GetNewID();
+                contact.ContactId = ContactsData.GetNewID();
                 ContactsData.Contacts.Add(contact);
+                targetId = contact.ContactId;
             }
-            return true;
+            return targetId;
         }
     }
 
@@ -85,6 +97,6 @@ namespace MvcApiAngularBoilerplate.Repositories
         T Get(int id);
         List<T> GetAll();
         bool Delete(int id);
-        bool Save(T item);
+        int Save(T item);
     }
 }

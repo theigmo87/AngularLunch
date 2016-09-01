@@ -6,41 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <meta name="description" content="An AngularJS contact manager app" />
     <title ng-bind="title"></title>
-    @*<style>
-        body[ng-cloak] {
-            display: none;
-        }
-
-        .boxWithHeight {
-            box-sizing: border-box;
-            height: 100%;
-        }
-
-        footer {
-            position: static;
-            max-height: 64px;
-            border-top: 1px solid blue;
-        }
-    </style>*@
-    <link rel="stylesheet" href="/assets/dist/css/style.css">
+    <link rel="stylesheet" href="/assets/dist/css/vendor.css" />
+    <link rel="stylesheet" href="/assets/dist/css/style.css" />
 </head>
-@*<base href="~/assets/src/app" />*@
-<body>
-    <root>
+<base href="/" />
+<body flex layout="column">
+    <root flex layout="column">
         <span class="loader">Loading...</span>
     </root>
-    <script src="assets/dist/js/vendor.js"></script>
-    <script src="assets/dist/js/bundle.js"></script>
-        @*<my-app flex layout="column"></my-app>
-        @if (HttpContext.Current.IsDebuggingEnabled)
-        {
-            <script src="~/assets/.tmp/index.js"></script>
-        }
-        else
-        {
-            <text>
-                @Scripts.Render("~/Content/appJs")
-            </text>
-        }*@
+    <script src="/assets/dist/js/vendor.js"></script>
+    <script src="/assets/dist/js/bundle.js"></script>
 </body>
 </html>

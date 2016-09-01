@@ -13,16 +13,23 @@ angular
 
 function ContactDetailController() {
     var ctrl = this;
+    ctrl.$onInit = onInit;
+    ctrl.$onChanges = onChanges;
+    ctrl.saveContact = saveContact;
+    ctrl.updateContact = updateContact;
+    ctrl.deleteContact = deleteContact;
+    ctrl.tagChange = tagChange;
 
-    ctrl.$onInit = function () {
-        ctrl.isNewContact = !ctrl.contact.$id;
+    function onInit() {
+        ctrl.isNewContact = !ctrl.contact.contactId;
     };
 
-    ctrl.$onChanges = function (changesObj) {
-        console.log("in contact-detail $onChanges");
-    }
+    function onChanges(changesObj) {
+        if (changesObj.contact && changesObj.contact.currentValue)
+            ctrl.contact = changesObj.contact.currentValue;
+    };
 
-    ctrl.saveContact = function () {
+    function saveContact() {
         ctrl.onSave({
             $event: {
                 contact: ctrl.contact
@@ -30,7 +37,7 @@ function ContactDetailController() {
         });
     };
 
-    ctrl.updateContact = function () {
+    function updateContact() {
         ctrl.onUpdate({
             $event: {
                 contact: ctrl.contact
@@ -38,7 +45,7 @@ function ContactDetailController() {
         });
     };
 
-    ctrl.deleteContact = function () {
+    function deleteContact() {
         ctrl.onDelete({
             $event: {
                 contact: ctrl.contact
@@ -46,8 +53,8 @@ function ContactDetailController() {
         });
     };
 
-    ctrl.tagChange = function (event) {
+    function tagChange(event) {
         ctrl.contact.tag = event.tag;
         ctrl.updateContact();
-    }
+    };
 }

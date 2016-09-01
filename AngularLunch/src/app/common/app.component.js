@@ -3,15 +3,13 @@ angular
     .component('app', {
         templateUrl: './app.html',
         controller: AppController
-    })
-    .config(function ($stateProvider) {
-        $stateProvider
-            .state('app', {
-                redirectTo: 'contacts',
-                url: '/app',
-                component: 'app'
-            })
     });
+    //.config(function ($stateProvider) {
+    //    $stateProvider
+    //        .state('app', {
+    //            url: '/app',
+    //        })
+    //});
 
 function AppController() {
     var vm = this;

@@ -1,7 +1,31 @@
-<div class="root">
-    <app-nav user="$ctrl.user"></app-nav>
-    <app-sidebar></app-sidebar>
-    <div class="app">
-        <div ui-view></div>
+<md-toolbar layout="row">
+    <h2>
+        <md-icon aria-label="Menu" class="material-icons" sidenav-toggle componentid="navmenu" hide-gt-md>menu</md-icon>
+        Contacts Manager
+    </h2>
+</md-toolbar>
+<div flex layout="row" id="mdDialogContainer" class="full-height">
+    <md-sidenav class="md-sidenav-left"
+                md-component-id="navmenu"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-disable-backdrop
+                md-whiteframe="5" layout="column" layout-padding>
+        
+        <a ui-sref="contacts" class="header__button header__button--new-contact">
+            <i class="material-icons">list</i>
+            All Contacts
+        </a>
+        <a ui-sref="new" class="header__button header__button--new-contact">
+            <i class="material-icons">add_circle_outline</i>
+            New Contact
+        </a>
+    </md-sidenav>
+    <div layout="column" flex style="overflow:auto;">
+        <section class="main-uiview-container" flex>
+            <div ui-view></div>
+        </section>
+        <footer flex layout="row">
+            footer
+        </footer>
     </div>
-</div>
+</div> 
