@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{220039C9-F4D0-4DDA-BA03-993F566B24B6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gulpfile.js" />
+    <Content Include="karma.conf.js" />
+    <Content Include="src\app\common\app.component.js" />
+    <Content Include="src\app\common\app.html" />
+    <Content Include="src\app\common\app.module.js" />
+    <Content Include="src\app\common\app.spec.js" />
+    <Content Include="src\app\common\sidenavToggle.directive.js" />
+    <Content Include="src\app\components\components.module.js" />
+    <Content Include="src\app\components\contact\contact-detail\contact-detail.component.js" />
+    <Content Include="src\app\components\contact\contact-detail\contact-detail.html" />
+    <Content Include="src\app\components\contact\contact-detail\contact-detail.spec.js" />
+    <Content Include="src\app\components\contact\contact-edit\contact-edit.component.js" />
+    <Content Include="src\app\components\contact\contact-edit\contact-edit.html" />
+    <Content Include="src\app\components\contact\contact-edit\contact-edit.spec.js" />
+    <Content Include="src\app\components\contact\contact-new\contact-new.component.js" />
+    <Content Include="src\app\components\contact\contact-new\contact-new.html" />
+    <Content Include="src\app\components\contact\contact-new\contact-new.spec.js" />
+    <Content Include="src\app\components\contact\contact.module.js" />
+    <Content Include="src\app\components\contact\contact.service.js" />
+    <Content Include="src\app\components\contact\contacts.spec.js" />
+    <Content Include="src\app\components\contact\contactList\contactList.component.js" />
+    <Content Include="src\app\components\contact\contactList\contactList.html" />
+    <Content Include="src\app\components\contact\contactList\contactList.spec.js" />
+    <Content Include="src\app\root.component.js" />
+    <Content Include="src\app\root.html" />
+    <Content Include="src\app\root.module.js" />
+    <Content Include="src\img\favicon.ico" />
+    <Content Include="src\img\logo.png" />
+    <Content Include="src\index.html" />
+    <Content Include="src\fonts\MaterialIcons-Regular.eot" />
+    <Content Include="src\fonts\MaterialIcons-Regular.ttf" />
+    <Content Include="src\fonts\MaterialIcons-Regular.woff" />
+    <Content Include="src\fonts\MaterialIcons-Regular.woff2" />
+    <Content Include="src\test\lib\bindPolyfill.js" />
+    <Content Include="src\test\lib\mockData.js" />
+    <Content Include="src\test\lib\specHelper.js" />
+    <Content Include="src\test\midway\controller.spec.js" />
+    <Content Include="src\test\midway\dataservice.spec.js" />
+    <Content Include="src\test\midway\template.spec.js" />
+    <Content Include="src\test\midway\view-requests.spec.js" />
+    <Content Include="src\test\specs\avengers-route.spec.js" />
+    <Content Include="src\test\specs\avengers.spec.js" />
+    <Content Include="src\test\specs\ccSidebar.spec.js" />
+    <Content Include="src\test\specs\dashboard-route.spec.js" />
+    <Content Include="src\test\specs\dashboard.spec.js" />
+    <Content Include="src\test\specs\dataservice.spec.js" />
+    <Content Include="src\test\specs\exception-handler.provider.spec.js" />
+    <Content Include="src\test\specs\sidebar.spec.js" />
+    <Content Include="src\sass\style.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\test\.jshintrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".babelrc" />
+    <Content Include=".editorconfig" />
+    <Content Include=".gitignore" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>AngularLunch</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>AngularLunch</AssemblyName>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50322</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:30015/assets</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

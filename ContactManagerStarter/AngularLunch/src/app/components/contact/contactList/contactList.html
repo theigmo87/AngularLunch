@@ -1,0 +1,22 @@
+<md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+        <h3 class="md-headline">
+            My Contacts
+        </h3>
+    </div>
+</md-toolbar>
+<md-list>
+    <!-- add repeated items and on click handler-->
+    <md-list-item class="md-2-line" ng-repeat="contact in $ctrl.contacts" ng-click="$ctrl.goToContact(contact.contactId)">
+        <img ng-src="{{ contact.avatar }}" class="md-avatar" alt="{{ contact.fullName.substring(0,1) }}" />
+        <div class="md-list-item-text" layout="column">
+            <h3>{{ contact.fullName }}</h3>
+            <h4>{{ contact.email }}</h4>
+        </div>
+    </md-list-item>
+</md-list>
+<!-- only show the following if the contacts list isn't defined or if it is empty-->
+<div class="contacts__empty" ng-if="!$ctrl.contacts || !$ctrl.contacts.length">
+    <i class="material-icons">face</i>
+    There's no one here...
+</div>
