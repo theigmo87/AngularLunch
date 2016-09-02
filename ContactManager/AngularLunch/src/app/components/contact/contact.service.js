@@ -5,6 +5,7 @@ angular
 
 // dependencies will automatically be injected
 function ContactService($http) {
+    var baseUrl = "/api/contacts/";
 
     // define the public functions and properties of the service.
     var service = {
@@ -26,22 +27,22 @@ function ContactService($http) {
         delete (delete)
     */
     function getContactList() {
-        return $http.get("/api/contacts");
+        return $http.get(baseUrl);
     }
 
     function getContactById(id) {
-        return $http.get('/api/contacts/' + id);
+        return $http.get(baseUrl + id);
     }
 
     function createContact(contact) {
-        return $http.post('/api/contacts/', contact);
+        return $http.post(baseUrl, contact);
     }
 
     function updateContact(contact) {
-        return $http.put('/api/contacts/', contact);
+        return $http.put(baseUrl, contact);
     }
 
     function deleteContact(id) {
-        return $http.delete('/api/contacts/' + id);
+        return $http.delete(baseUrl + id);
     }
 }

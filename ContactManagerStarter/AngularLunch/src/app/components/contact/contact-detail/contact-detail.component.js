@@ -12,8 +12,7 @@ angular
             // '=' can be used for string literals
             contact: '<',
             onCreate: '&',
-            onUpdate: '&',
-            onDelete: '&'
+            // expose two more callback bindings, onUpdate and onDelete
         }
     });
 
@@ -45,19 +44,15 @@ function ContactDetailController() {
         })
     };
 
+    // call the onUpdate callback that was passed in through the bindings
+    // pass in { $event: { contact: ctrl.contact } } as the argument
     function updateContact() {
-        ctrl.onUpdate({
-            $event: {
-                contact: ctrl.contact
-            }
-        });
+        
     };
 
+    // call the onDelete callback that was passed in through the bindings
+    // pass in { $event: { contact: ctrl.contact } } as the argument
     function deleteContact() {
-        ctrl.onDelete({
-            $event: {
-                contact: ctrl.contact
-            }
-        });
+        
     };
 }

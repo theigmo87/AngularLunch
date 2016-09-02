@@ -24,23 +24,9 @@
                                ng-model-options="{ 'updateOn': 'default blur', 'debounce': { 'default': 250, 'blur': 0 }}">
                     </md-input-container>
                 </div>
+
                 <!-- add lastName and email inputs -->
-                <div>
-                    <md-input-container>
-                        <label>Last Name</label>
-                        <input required name="lastName"
-                               ng-model="$ctrl.contact.lastName"
-                               ng-model-options="{ 'updateOn': 'default blur', 'debounce': { 'default': 250, 'blur': 0 }}">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <label>Email</label>
-                        <input required name="email" type="email"
-                                ng-model="$ctrl.contact.email"
-                                ng-model-options="{ 'updateOn': 'default blur', 'debounce': { 'default': 250, 'blur': 0 }}">
-                    </md-input-container>
-                </div>
+
             </div>
         </div>
         <div style="text-align:right;">
@@ -56,12 +42,10 @@
                            ng-click="$ctrl.deleteContact();">
                     Delete contact
                 </md-button>
-                <!-- add save contact button to update an existing contact -->
-                <md-button class="md-raised md-primary"
-                           ng-disabled="contactDetailForm.$invalid"
-                           ng-click="$ctrl.updateContact();">
-                    Save contact
-                </md-button>
+
+                <!-- add save contact button to update an existing contact. 
+                    Should be disabled if form is invalid and call $ctrl.updateContact on click -->
+
             </div>
         </div>
     </form>

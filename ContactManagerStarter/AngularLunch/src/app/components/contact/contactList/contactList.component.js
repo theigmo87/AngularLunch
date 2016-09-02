@@ -23,6 +23,7 @@ angular
                 // define any data that needs to resolve before the component is loaded
                 resolve: {
                     // dependency automatically injected
+                    // define (contacts) as a function that return the promise returned from ContactService.getContactList()
                     contacts: function (ContactService) {
                         return ContactService.getContactList();
                     }
@@ -33,6 +34,7 @@ angular
 function ContactListController($state) {
     // helps with 'this' problems
     var ctrl = this;
+
     // set up public methods
     ctrl.$onChanges = onChanges;
     ctrl.goToContact = goToContact;

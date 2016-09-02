@@ -29,13 +29,8 @@ function NewContactController(ContactService, $state) {
     };
 
     function createContact(event) {
-        // return a promise that if successful, go to the edit state ('contact') and pass the id ({ id: data.data })
-        return ContactService
-            .createContact(event.contact)
-            .then(function (data) {
-                $state.go('contact', {
-                    id: data.data
-                });
-            });
+        // call ContactService.createContact() to create a contact, pass in event.contact
+        // return a promise that if resolves successfully, go to the edit state ('contact') and pass the id ({ id: data.data })
+
     };
 }

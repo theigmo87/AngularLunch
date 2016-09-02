@@ -3,15 +3,14 @@ angular
     // since the case of html elements does not matter, any camel case component names will be split by a '-' on case change.
     // example: component's name is 'contactEdit', the html tag will be <contact-edit>
     .component('contactEdit', {
-        templateUrl: './contact-edit.html',
-        controller: ContactEditController,
+        // define your templateUrl and your controller
+
         // binding names case changes mirror the component's name case change example when defining them as html attributes
         // '<' indicates one way data binding
         // '&' indicates a callback method
         // '@' can be used for string literals
-        bindings: {
-            contact: '<'
-        }
+        // add a one way binding for (contact)
+
     })
     .config(function ($stateProvider) {
         $stateProvider
@@ -34,38 +33,32 @@ angular
 function ContactEditController($state, ContactService, cfpLoadingBar, $window) {
     var ctrl = this;
     ctrl.$onChanges = onChanges;
-    ctrl.updateContact = updateContact;
-    ctrl.deleteContact = deleteContact;
+    // ctrl.updateContact = ;
+    // ctrl.deleteContact = ;
 
     // called first in the lifecycle of the component and everytime the bound properties are updated
     function onChanges(changesObj) {
-        if (changesObj.contact && changesObj.contact.currentValue && changesObj.contact.currentValue.data)
-            ctrl.contact = changesObj.contact.currentValue.data;
+        // make sure each object down to what you're looking for exists.
+        // this controller's contact needs to be set to the value of changesObj.contact.currentValue.data if it exists.
     };
 
     // function to call the updateContact method in the ContactService
+    // call contact service updateContact, pass in event.contact
+    // if the promise resolves successfully, call cfpLoadingBar.complete() and go to 'contacts' state
+    // if the promise is rejected, pass in cfpLoadingBar.complete as the callback
     function updateContact(event) {
         cfpLoadingBar.start();
-        return ContactService
-            .updateContact(event.contact)
-            .then(function () {
-                cfpLoadingBar.complete();
-                $state.go('contacts');
-            },
-            cfpLoadingBar.complete);
+        // return ContactService
     };
 
     // function to call the updateContact method in the ContactService after confirmation alert
+    // call contact service deleteContact, pass in event.contact.contactId
+    // if the promise resolves successfully, call cfpLoadingBar.complete() and go to 'contacts' state
+    // if the promise is rejected, pass in cfpLoadingBar.complete as the callback
     function deleteContact(event) {
         var message = 'Delete ' + event.contact.fullName + ' from contacts?';
         if ($window.confirm(message)) {
-            return ContactService
-              .deleteContact(event.contact.contactId)
-              .then(function () {
-                  cfpLoadingBar.complete();
-                  $state.go('contacts');
-              },
-              cfpLoadingBar.complete);
+            // return ContactService
         }
     };
 }
