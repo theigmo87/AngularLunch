@@ -42,9 +42,9 @@
     <Content Include="src\app\components\contact\contact.module.js" />
     <Content Include="src\app\components\contact\contact.service.js" />
     <Content Include="src\app\components\contact\contacts.spec.js" />
-    <Content Include="src\app\components\contact\contacts\contacts.component.js" />
-    <Content Include="src\app\components\contact\contacts\contacts.html" />
-    <Content Include="src\app\components\contact\contacts\contacts.spec.js" />
+    <Content Include="src\app\components\contact\contactList\contactList.component.js" />
+    <Content Include="src\app\components\contact\contactList\contactList.html" />
+    <Content Include="src\app\components\contact\contactList\contactList.spec.js" />
     <Content Include="src\app\root.component.js" />
     <Content Include="src\app\root.html" />
     <Content Include="src\app\root.module.js" />

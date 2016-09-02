@@ -6,6 +6,7 @@
     </div>
 </md-toolbar>
 <md-list>
+    <!-- add repeated items and on click handler-->
     <md-list-item class="md-2-line" ng-repeat="contact in $ctrl.contacts" ng-click="$ctrl.goToContact(contact.contactId)">
         <img ng-src="{{ contact.avatar }}" class="md-avatar" alt="{{ contact.fullName.substring(0,1) }}" />
         <div class="md-list-item-text" layout="column">
@@ -14,7 +15,8 @@
         </div>
     </md-list-item>
 </md-list>
-<div class="contacts__empty" ng-if="!$ctrl.contacts.length">
+<!-- only show the following if the contacts list isn't defined or if it is empty-->
+<div class="contacts__empty" ng-if="!$ctrl.contacts || !$ctrl.contacts.length">
     <i class="material-icons">face</i>
     There's no one here...
 </div>

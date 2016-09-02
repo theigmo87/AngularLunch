@@ -1,4 +1,2 @@
 angular
-    .module('components.contact', [
-        'ui.router'
-    ]);
+    .module('components.contact', []);

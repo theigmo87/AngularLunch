@@ -1,11 +1,7 @@
 angular
+    // list dependency modules as an array for the second argument
+    // this is only done when you are defining a module, not calling it
     .module('common', [
-        'ui.router',
         'angular-loading-bar',
         'ngMaterial'
-    ])
-    .run(function ($transitions, cfpLoadingBar, $state) {
-        //$transitions.onStart({}, cfpLoadingBar.start);
-        //$transitions.onSuccess({}, cfpLoadingBar.complete);
-        //$state.go('contacts');
-    });
+    ]);

@@ -1,9 +1,12 @@
 angular
     .module('components.contact')
+    // this is the name you will use to inject the service
     .service('ContactService', ContactService);
 
-function ContactService($http, $q) {
+// dependencies will automatically be injected
+function ContactService($http) {
 
+    // define the public functions and properties of the service.
     var service = {
         getContactList: getContactList,
         getContactById: getContactById,
@@ -12,8 +15,16 @@ function ContactService($http, $q) {
         deleteContact: deleteContact
     }
 
+    // return the public object.
     return service;
 
+    // define the private functions exposed by the public functions
+    /* http verbs when communicating to a web api
+        get (get)
+        post (create)
+        put (update)
+        delete (delete)
+    */
     function getContactList() {
         return $http.get("/api/contacts");
     }

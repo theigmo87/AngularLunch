@@ -6,7 +6,9 @@ angular
     .module('common')
     .directive('sidenavToggle', sidenavToggleDirective);
 
+// dependency will automatically be injected
 function sidenavToggleDirective($mdSidenav) {
+    // define public object to be returned
     var directive = {
         scope:{
             componentid: '@'
@@ -16,8 +18,9 @@ function sidenavToggleDirective($mdSidenav) {
 
     return directive;
 
-    function linkFunc(scope, el, attr, ctrl) {
-        el.on('click', function () {
+    // define private functions that the public object exposes
+    function linkFunc(scope, element, attr, ctrl) {
+        element.on('click', function () {
             $mdSidenav(scope.componentid)
                 .toggle();
         });
