@@ -75,9 +75,13 @@ root .loader {
   margin-right: 3px;
 }
 .header__button--new-contact {
-  color: #50D749;
-  position: relative;
-  top: -2px;
+  color: #00449f;
+  padding:8px;
+  display:block;
+
+  &:hover{
+      background-color:rgba(0,0,0,.1);
+  }
 }
 
 /**
@@ -348,42 +352,6 @@ input:focus {
   outline: none;
 }
 
-button {
-  background: rgba(0, 133, 215, 0.6);
-  color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 3px 0px 0px rgba(0, 133, 215, 1);
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  margin-bottom: 3px;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:active {
-  outline: none;
-  margin-top: 2px;
-  box-shadow: 0 1px 0px 0px rgba(0, 133, 215, 1);
-  margin-bottom: 1px;
-}
-button[disabled] {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.4);
-  cursor: not-allowed;
-  box-shadow: 0 3px 0px 0px rgba(0, 0, 0, 0.1);
-}
-button.delete {
-  background: rgba(227, 46, 48, 0.6);
-  box-shadow: 0 3px 0px 0px rgba(227, 46, 48, 1);
-}
-button.delete:active {
-  box-shadow: 0 1px 0px 0px rgba(227, 46, 48, 1);
-}
-
 .dynamic-input {
   border-color: transparent;
 }
@@ -472,6 +440,7 @@ body[ng-cloak] {
 
 section.main-uiview-container{
     flex-shrink:0;
+    padding-bottom:32px;
 }
 
 sidenav{
@@ -523,4 +492,18 @@ pto-chart canvas{
     content:" ";
     display:block;
     clear:both;
+}
+
+.content-container{
+    overflow:auto;
+    background-color:rgba(0,0,0,.05);
+}
+
+footer{
+    background-color:rgba(0,0,0,.1);
+    border:none;
+    color:#777;
+    text-align:center;
+    min-height:64px;
+    line-height:64px;
 }

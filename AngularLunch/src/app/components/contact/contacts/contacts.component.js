@@ -2,7 +2,6 @@ angular
     .module('components.contact')
     .component('contacts', {
         bindings: {
-            filter: '<',
             contacts: '<'
         },
         templateUrl: './contacts.html',
@@ -26,9 +25,9 @@ function ContactsController($state) {
     ctrl.$onChanges = onChanges;
     ctrl.goToContact = goToContact;
 
-    function goToContact(event) {
+    function goToContact(contactId) {
         $state.go('contact', {
-            id: event.contactId
+            id: contactId
         });
     };
 

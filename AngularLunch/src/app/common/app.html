@@ -1,31 +1,51 @@
-<md-toolbar layout="row">
-    <h2>
-        <md-icon aria-label="Menu" class="material-icons" sidenav-toggle componentid="navmenu" hide-gt-md>menu</md-icon>
-        Contacts Manager
-    </h2>
+<md-toolbar layout-padding>
+    <div class="md-toolbar-tools">
+        <md-button hide-gt-md aria-label="Menu Toggle" sidenav-toggle componentid="navmenu">
+            <md-icon class="material-icons">menu</md-icon>
+        </md-button>
+        <h2 class="md-headline">
+            Contacts Manager
+        </h2>
+    </div>
 </md-toolbar>
 <div flex layout="row" id="mdDialogContainer" class="full-height">
     <md-sidenav class="md-sidenav-left"
                 md-component-id="navmenu"
                 md-is-locked-open="$mdMedia('gt-md')"
                 md-disable-backdrop
-                md-whiteframe="5" layout="column" layout-padding>
-        
-        <a ui-sref="contacts" class="header__button header__button--new-contact">
-            <i class="material-icons">list</i>
-            All Contacts
-        </a>
-        <a ui-sref="new" class="header__button header__button--new-contact">
-            <i class="material-icons">add_circle_outline</i>
-            New Contact
-        </a>
+                md-whiteframe="5" layout="column">
+        <md-toolbar hide-gt-md>
+            <div class="md-toolbar-tools">
+                <h2 class="md-headline">
+                    Menu
+                </h2>
+            </div>
+        </md-toolbar>
+        <div layout-padding>
+            <div>
+                <a ui-sref="contacts" class="header__button header__button--new-contact" ng-click="$ctrl.closeMenu()">
+                    <i class="material-icons">list</i>
+                    All Contacts
+                </a>
+            </div>
+            <div>
+                <a ui-sref="new" class="header__button header__button--new-contact" ng-click="$ctrl.closeMenu()">
+                    <i class="material-icons">add_circle_outline</i>
+                    New Contact
+                </a>
+            </div>            
+        </div>
     </md-sidenav>
-    <div layout="column" flex style="overflow:auto;">
+    <div layout="column" flex class="content-container">
         <section class="main-uiview-container" flex>
-            <div ui-view></div>
+            <div layout="row" layout-align="center" layout-margin>
+                <md-content flex-gt-sm="50" flex layout="column" class="md-whiteframe-2dp">
+                    <div ui-view></div>
+                </md-content>
+            </div>
         </section>
-        <footer flex layout="row">
-            footer
+        <footer flex>
+            Created by: Jimmy Gillam
         </footer>
     </div>
 </div> 

@@ -103,24 +103,22 @@ gulp.task('copy', ['clean'], () => {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('watch', ['scripts'], () => {
+gulp.task('watch', ['scripts', 'styles'], () => {
     gulp.watch([paths.scripts, paths.templates], ['scripts']);
     gulp.watch(paths.styles, ['styles']);
 });
 
 gulp.task('default', [
   'copy',
-  'styles',
   'watch'
 ]);
 
 gulp.task('defaultWithServe', [
   'copy',
-  'styles',
   'watchWithServe'
 ]);
 
-gulp.task('watchWithServe', ['serve', 'scripts'], () => {
+gulp.task('watchWithServe', ['serve', 'scripts', 'styles'], () => {
     gulp.watch([paths.scripts, paths.templates, `${root}/index.html`], ['scripts']);
     gulp.watch(paths.styles, ['styles']);
 });

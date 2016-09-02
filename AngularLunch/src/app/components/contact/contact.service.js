@@ -7,7 +7,7 @@ function ContactService($http, $q) {
     var service = {
         getContactList: getContactList,
         getContactById: getContactById,
-        createNewContact: createNewContact,
+        createContact: createContact,
         updateContact: updateContact,
         deleteContact: deleteContact
     }
@@ -22,7 +22,7 @@ function ContactService($http, $q) {
         return $http.get('/api/contacts/' + id);
     }
 
-    function createNewContact(contact) {
+    function createContact(contact) {
         return $http.post('/api/contacts/', contact);
     }
 

@@ -2,7 +2,7 @@ angular
     .module('components.contact')
     .component('contactNew', {
         templateUrl: './contact-new.html',
-        controller: ContactNewController
+        controller: NewContactController
     })
     .config(function ($stateProvider) {
         $stateProvider
@@ -12,30 +12,18 @@ angular
             });
     });
 
-function ContactNewController(ContactService, $state) {
+function NewContactController(ContactService, $state) {
     var ctrl = this;
     ctrl.$onInit = onInit;
-    ctrl.createNewContact = createNewContact;
+    ctrl.createContact = createContact;
 
     function onInit () {
-        ctrl.contact = {
-            name: '',
-            email: '',
-            job: '',
-            location: '',
-            social: {
-                facebook: '',
-                github: '',
-                twitter: '',
-                linkedin: ''
-            },
-            tag: 'none'
-        };
+        ctrl.contact = {};
     };
 
-    function createNewContact (event) {
+    function createContact(event) {
         return ContactService
-          .createNewContact(event.contact)
+          .createContact(event.contact)
           .then(function (data) {
               $state.go('contact', {
                   id: data.data

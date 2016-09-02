@@ -5,7 +5,7 @@ angular
         controller: ContactDetailController,
         bindings: {
             contact: '<',
-            onSave: '&',
+            onCreate: '&',
             onUpdate: '&',
             onDelete: '&'
         }
@@ -15,10 +15,9 @@ function ContactDetailController() {
     var ctrl = this;
     ctrl.$onInit = onInit;
     ctrl.$onChanges = onChanges;
-    ctrl.saveContact = saveContact;
+    ctrl.createContact = createContact;
     ctrl.updateContact = updateContact;
     ctrl.deleteContact = deleteContact;
-    ctrl.tagChange = tagChange;
 
     function onInit() {
         ctrl.isNewContact = !ctrl.contact.contactId;
@@ -26,15 +25,15 @@ function ContactDetailController() {
 
     function onChanges(changesObj) {
         if (changesObj.contact && changesObj.contact.currentValue)
-            ctrl.contact = changesObj.contact.currentValue;
+            ctrl.contact = angular.copy(changesObj.contact.currentValue);
     };
 
-    function saveContact() {
-        ctrl.onSave({
+    function createContact() {
+        ctrl.onCreate({
             $event: {
                 contact: ctrl.contact
             }
-        });
+        })
     };
 
     function updateContact() {
@@ -51,10 +50,5 @@ function ContactDetailController() {
                 contact: ctrl.contact
             }
         });
-    };
-
-    function tagChange(event) {
-        ctrl.contact.tag = event.tag;
-        ctrl.updateContact();
     };
 }

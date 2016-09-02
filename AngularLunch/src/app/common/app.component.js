@@ -4,13 +4,12 @@ angular
         templateUrl: './app.html',
         controller: AppController
     });
-    //.config(function ($stateProvider) {
-    //    $stateProvider
-    //        .state('app', {
-    //            url: '/app',
-    //        })
-    //});
 
-function AppController() {
-    var vm = this;
+function AppController($mdSidenav) {
+    var ctrl = this;
+    ctrl.closeMenu = closeMenu;
+
+    function closeMenu() {
+        $mdSidenav('navmenu').close();
+    }
 }
